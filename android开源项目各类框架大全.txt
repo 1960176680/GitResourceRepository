@@ -1,0 +1,184 @@
+android开源项目框架大全：
+
+
+
+1.多页切换TabHost 9
+
+高仿网易云音乐客户端的Home页面切换Tabhost
+高仿网易云音乐客户端的Home页面切换Tabhost，并且三角形是透明的，实现方式，自定义AnimTabsView继承 RelativeLayout 里面对当前选中的item 处理 三角形变成透明效果，即在onDraw 里面对三角形图片经行透明度处理，AnimTabsView提供 setOnAnimTabsItemViewChangeListener方法的onChange()用来监听点击切换tabhost.
+http://www.itlanbao.com/code/20151009/10000/100567.html
+
+
+
+2.对话框 (dialog) 16
+
+EasyDialogDemo
+A lightweight, flexible tip dialog in Android。你可以只用一行代码就实现提示对话框，包括设置对话框的位置，背景颜色和动画等等。http://www.itlanbao.com/code/20150808/10000/100166.html
+http://www.itlanbao.com/code/20150808/10000/100166.html
+
+
+
+3.按钮 (Button) 13
+
+ArrowDownloadButton下载按钮从点击到下载完成特效
+ArrowDownloadButton下载按钮从点击开始下载到下载完成各个阶段有不一样的特效展示，自定义一个ArrowDownloadButton然后监听点击事件setOnClickListener（）在onClick（）里面 button.startAnimating();然后再按钮里面启动一个定时器Timer 定时更新按钮进度button.setProgress(progress);
+http://www.itlanbao.com/code/20150901/10000/100496.html
+
+
+
+4.日历 (Calendar) 8
+
+SilkCal
+根据iOS7原生日历和 Sunrise calendar实现的 calendar view。滚动月的时候会高亮显示当前年月。 
+http://www.itlanbao.com/code/20150805/10038/100128.html
+
+
+
+5.相机 (Camera) 10
+
+StickerCamera
+贴纸标签相机,功能:拍照,相片裁剪,给图片贴贴纸,打标签。
+http://www.itlanbao.com/code/20150809/10032/100186.html
+
+
+
+6.图片高斯模糊(Blur) 12
+
+BlurredGridMenu
+GridView底部背景模糊特效：http://www.itlanbao.com/code/20150810/10031/100218.html
+http://www.itlanbao.com/code/20150810/10031/100218.html
+
+
+
+
+7.图像 (Image) 35
+
+android-image-slide-panel图片照片墙的加载和滑动特效
+android-image-slide-panel图片照片墙的加载图片的时候一张一张叠加和加载完成后切换每一张的滑动特效，自定义ImageSlidePanel，按照初叶的使用习惯，每一页应该是一个模板，所以此处命名时使用了Template关键字
+http://www.itlanbao.com/code/20150908/10000/100513.html
+
+
+
+8.自定义RecyclerView 18
+
+BeerSwipeRefresh
+倒啤酒动画的下拉刷新：http://www.itlanbao.com/code/20150815/10000/100424.html
+http://www.itlanbao.com/code/20150815/10000/100424.html
+
+
+
+9.下拉列表和自动提示 13
+
+NiftyNotification
+android通知效果，基于Crouton项目：http://www.itlanbao.com/code/20150814/10000/100356.html
+http://www.itlanbao.com/code/20150814/10000/100356.html
+
+
+
+
+10.地图 (Map) 7
+
+AmapDemo仿照一号专车的地图界面
+AmapDemo仿照一号专车的地图界面，地图加载定位进入后的放大效果和地图移动效果非常棒，本项目指导我们如何使用地图功能，如何自定义系统定位蓝点，本项目主要引导我们如何嵌入第三方sdk实现地图定位效果。
+http://www.itlanbao.com/code/20150915/10000/100530.html
+
+
+
+11.菜单 (Menu) 23
+
+FoldingTabBar.Android
+一个tab菜单动画，可以扩展与折叠。根据Dribbble的效果图实现。
+http://www.itlanbao.com/code/20150812/10000/100338.html
+
+
+
+12.导航条 (actionbar) 9
+
+MaterialSheetFab酷炫动画效果的FAB按钮
+MaterialSheetFab酷炫动画效果的FAB按钮：http://www.itlanbao.com/code/20150814/10000/100367.html
+http://www.itlanbao.com/code/20150814/10000/100367.html
+
+
+
+
+13.选择器 (Picker) 10
+
+TimePicker
+Android滚动选择器PickerView,滚动时字体随距离渐变。手机里设置闹钟需要选择时间，可以使用这个控件进行时间选择 
+http://www.itlanbao.com/code/20150812/10000/100348.html
+
+
+
+14.进度条 (ProgressBar) 22
+
+RadarView漂亮的加载进度条
+RadarView漂亮的加载进度条,自定义视图RadarView看起来像一个搜索雷达。通过 new Thread()方式来实现循环滚动搜索，在根据角度设置starModel.setAlpha();
+http://www.itlanbao.com/code/20150908/10000/100514.html
+
+
+
+15.滚动视图 (ScrollView) 8
+
+android-sticky-viewpager
+ViewPager带有粘性功能，常规的处理方法可能会超级复杂，因为涉及到大量的onTouch监听、拦截，滑动时因为效率问题影响用户体验，不信你去看一下应用宝、豌豆荚的App详情页，然后滑动一下试试。
+http://www.itlanbao.com/code/20150814/10000/100375.html
+
+
+
+16.分段选择 (Segment) 3
+
+android-segmented-control-view
+自定义RadioGroup实现的分段选择控件：http://www.itlanbao.com/code/20150812/10000/100311.html
+http://www.itlanbao.com/code/20150812/10000/100311.html
+
+
+
+
+17.拖动条(SeekBar) 6
+
+MaterialRangeSlider双向拖动seekbarMaterialRangeSlider双向拖动seekbar,支持双向拖动，并且价格也跟着变化，滑动SeekBar的最小滚动条和最大滚动条的时候Tumb跟着变大，并且处理两个进度重叠问题。适用于展示价格之类的应用，让用户自己选择价格范围。
+http://www.itlanbao.com/code/20150902/10000/100500.html
+
+
+
+18.网格(GridView) 13
+
+仿zaker效果的拖拽排序Android-DraggableGridViewPager
+仿zaker效果的拖拽排序。可以动态设置列数，动态增加或者减少item，当一页填满自动增加到下一页，当页数大于1，可以左右翻页。
+http://www.itlanbao.com/code/20150815/10000/100418.html
+
+
+
+19.开关 (Switch) 5
+
+SwitchButton
+SwitchButton是用在Android上的开关按钮，最低兼容Android2.1
+http://www.itlanbao.com/code/20150812/10000/100305.html
+
+
+
+20.Gallery和ImageSwitcher 5
+
+Android-Material-circular-button图片切换和按钮联动效果
+Android-Material-circular-button图片切换和按钮联动效果,添加按钮button可以根据ImageView获取当前显示的图片的颜色值来动态设置按钮颜色，过渡效果非常好，
+http://www.itlanbao.com/code/20150921/10000/100542.html
+
+
+
+21.列表 (ListView) 34
+
+EmojiChat聊天页面实现，支持发送失败重发
+EmojiChat聊天页面实现，支持发送失败后重新发送，且支持发送表情，发送图片，适合做社交软件聊天页面参考，功能已经很强大稳定了，本项目主要通过ListView对List<Message>设置ChatAdapter进行显示的。自定义聊天底部弹窗KJChatKeyboard，KJChatKeyboard 控件继承RelativeLayout实现SoftKeyboardStateHelper.SoftKeyboardStateListener，
+http://www.itlanbao.com/code/20151015/10000/100582.html
+
+
+
+22.文字输入框 (EditText) 9
+
+BGAFlowLayout-Android动态添加View
+Android流式布局，可配置是否将每一行的空白区域平均分配给子控件。增加了将每一行的空白区域平均分配给子控件。demo中分别演示了在xml使用方式和在java代码中动态添加
+http://www.itlanbao.com/code/20150908/10000/100512.html
+
+ 
+真诚分享，希望能给大家提供帮助，因项目源码和效果图过大，给大家带来不便，请谅解！
+

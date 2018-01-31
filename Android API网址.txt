@@ -1,0 +1,101 @@
+http://www.androiddevtools.cn/
+http://wiki.eoeandroid.com/Android_API_Guides
+当然也可以去http://git-scm.com上下载最新版本的源代码，在本地编译安装，这里不详述了。
+
+http://www.android-studio.org
+http://getfiddler.com 
+
+http://www.apkbus.com/plugin.php?id=codesrc&modo=all（好ApkBus）
+
+IT蓝豹
+
+http://www.bubuko.com/infodetail-1119779.html
+
+http://www.fiddler2.com/dl/Fiddler2Setup.exe
+
+
+www.bejson.com
+
+
+https://github.com/search?utf8=%E2%9C%93&q=ViewPager&type=Repositories&ref=searchresults
+
+https://github.com/Trinea/android-open-project#%E4%BA%8Cactionbar
+https://github.com/Trinea/android-open-project
+
+
+http://a.code4app.com/category/listview
+http://a.code4app.com
+
+http://tool.osChina.net/codeformat/json
+
+
+http://www.atool.org/httptest.php
+
+
+http://www.apkbus.com/Android-44-1.html
+
+
+http://www.ui.cn/
+
+http://mobile.51cto.com/design-250037.htm
+
+
+https://github.com/Trinea/android-open-project#%E5%85%ADimageview
+
+
+
+
+
+
+王玉良 11:16:39 (多人发送)
+http://note.youdao.com/share/?id=cdfb33b6fa669b249a409d652fb66d2c&type=notebook
+王玉良 11:16:49 (多人发送)
+http://note.youdao.com/share/?id=cdfb33b6fa669b249a409d652fb66d2c&type=notebook
+王玉良 11:17:35 (多人发送)
+http://note.youdao.com/share/?id=f3db3934ff373836b3c04c8883e88774&type=notebook
+
+
+
+http://i.youku.com/luoyanxiaoyanzi%C2%A0
+
+1月23日 Android动画架构设计_Dream老师
+链接：http://pan.baidu.com/s/1mgYhSoC 密码：bkrz 
+
+1月25日 Eric大神教你轻松打造GIF动画引擎_Eric老师
+链接：http://pan.baidu.com/s/1i3V72JV ;密码：eewr
+
+2016-1-26 字母导航控件-Eric老师
+链接：http://pan.baidu.com/s/1c1jU6ys ;密码：9b0e
+
+2016-1-26大神教你高级组件SurfaceView高性能绘图_Dream老师
+链接：http://pan.baidu.com/s/1c1jUNew 密码：zqdt
+
+2016-1-28 Touch事件分发和消费机制-tony老师
+链接：http://pan.baidu.com/s/1qWXvYQ4 ;密码：wtxy
+
+http://www.devstore.cn/下载书资料
+https://ke.qq.com/course/95024?from=2#term_id=100096581腾讯课堂
+http://www.apkbus.com/  Anndroid巴士
+http://www.jcodecraeer.com/a/opensource/2014/1113/1971.html Xutil框架
+http://www.umeng.com/友盟
+http://www.apkbus.com/forum-417-1.html  Anndroid巴士
+https://ke.qq.com/腾讯课堂
+http://www.nowamagic.net/academy/detail/50110211魔法学院
+http://youtui.mobi/download/sdk/newest 友推
+http://www.mob.com/#/  MobShareSDK
+http://blog.sina.com.cn/s/blog_5f82a10601019nj3.html SVN断开连接
+http://www.eoeandroid.com/thread-249108-1-1.html?_dsign=1052b92c Android自动更新下载
+http://www.open-open.com/lib/view/1329274683593 下载安装
+http://www.atool.org/httptest.php 工具
+http://www.itlanbao.com/ IT蓝豹
+http://www.jcodecraeer.com/ Android泡在网上的日子
+http://www.androidym.com/forum-2-1.html  android源码
+http://www.bkjia.com/Androidjc/935278.html
+
+http://plugins.jetbrains.com/   studio插件
+
+
+
+
+
+
