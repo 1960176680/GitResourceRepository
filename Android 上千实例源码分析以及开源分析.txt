@@ -1,0 +1,1369 @@
+Android 上千实例源码分析以及开源分析（百度云分享）
+要下载的直接翻到最后吧，项目实例有点多。 
+首先 介绍几本书籍(下载包中)吧。
+01_Android系统概述
+02_Android系统的开发综述
+03_Android的Linux内核与驱动程序
+04_Android的底层库和程序
+05_Android的JAVA虚拟机和JAVA环境
+06_Android的GUI系统
+07_Android的Audio系统
+08_Android的Video 输入输出系统
+09_Android的多媒体系统
+10_Android的电话部分
+11_Android的连接部分
+12_Android的传感器系统
+13_Android应用开发揭秘(含代码)
+14_Android 电话与短信应用
+15_Android斗地主[牌桌实现源码]
+16_Android核心分析
+17_Android开发权威指南
+18_Android开发指南中文版-应用程序框架
+19_Android驱动开发入门及手机案例开发分析教程
+20_Android手机开发应用案例分析之手机版开心网功能实现
+21_Android硬件驱动开发关键技术和HAL移植要领
+22_Android中文翻译组——Android中文API合集（4）
+23_Android Google.Android开发入门与实战
+24_Android 精通Android游戏开发
+25_Android 3G应用开发之Android
+26_Android 15个Android很有用的代码片段
+27_Android Android 图像处理篇
+28_Android Android_CTS测试研究
+29_Android Android_GoogleMaps基础开发教程
+30_Android Android_GPS架构分析
+31_Android android_JNI编程_一些技巧
+32_Android android_jni操作指南
+33_Android Android_NDK开发实例
+34_Android Android_RIL层剖析(官方翻译)
+35_Android Android2.2+API+中文文档系列
+36_Android Android的Message机制(简单小结)
+37_Android Android的主题和风格介绍
+38_Android Android开发环境搭建
+39_Android Android内存泄露调试
+40_Android Android日历完整实现
+41_Android Android摄像头的应用
+42_Android Android实现GPS定位
+43_Android Android通过JNI调用驱动程序
+44_Android Android网络开发详解
+44_Android android写的google map api 应用
+46_Android android学习资料大全
+47_Android Android音视频的编解码
+48_Android Android应用框架原理与程序设计36技%28高焕堂著、简体版%29
+49_Android Android与JUnit深入浅出
+50_Android Android真机开发教程
+51_Android Android中文翻译组——Android中文API合集（4）
+52_Android bluetooth 蓝牙
+53_Android Google_Map_API谷歌地图
+54_Android Android的XML解析
+55_Android 牛人Android提高篇
+56_Android 手把手教你用Android开发新浪微博客户端
+57_Android Android 开发手册
+58_Android android+底层系统开发
+59_Android Android2.3用户手册
+ 
+毋庸置疑，看完上面的书籍，你不是高手，都不行。
+我只是每天看一个小时，但是已经看完了大半部分，其它时间用于研究c++方面的东西了，没办法啊，我以前是搞c++的，现在换了公司，得学Java了，但是我对c++的爱好始终没有减，有时间的话我把研究好了的东西开源出来大家一起交流下。
+ 
+进入正题了，以下是大量的Android 的实例源码分析（含 开源项目 ----都在下载包中），我一一详解，简单的或重复的技术就直接略过了，谢谢大家的指点。
+ 
+1、360新版特性界面源代码
+实现了360新版特性界面的效果，主要涉及到Qt的一些事件处理与自定义控件。但源码好像是c++。
+ 
+2、aidl跨进程调用
+服务端onBind暴露，然后客户端bindService得到aidl对象
+ 
+3、UI设计之 仿做蘑菇街UI设计 源码
+包含viewflipper用来显示一个展示幻灯片banner 用到了OnGestureListener,OnTouchListener接口。
+4、Android 程序的安装、卸载和更新
+  通过Intent机制，调出系统安装应用/卸载应用，直接调用安装接口，
+ 
+5、Android有未接来电后处理(判断未接来电)
+继承PhoneStateListener后,当手机的状态改变后将会触发onCallStateChanged.手机的状态分为CALL_STATE_RINGING(响铃中),CALL_STATE_IDLE(空闲),CALL_STATE_OFFHOOK(忙音)。
+
+
+6、Android与js交互
+webview可以通过loadUrl()这个函数对html上的js进行调用同时传参（js需要参数） 这样就可以向html传值了。继承WebChromeClient类，分别使用Android的内置控件重写了Js中对应的对话框，就是说对js中的对话框做处理了。
+ 
+7、Android远程登录含有loading登录效
+通过使用Handler实现远程登陆功能以及效果,使用Socket以及DataOutputStream、DataInputStream 实现登陆判断,代码含注册界面、服务器响应。
+ 
+8、android在wifi下手机与电脑的socket通信
+手机作为服务端，电脑使用MFC编程作为客户端，原理是，手机建立一个ServerSocket，并获取自己的ip地址和端口port；然后电脑通过socket连接手机的ip：port。熟悉c++的人可以测试。
+ 
+9、Android之Wifi学习教程
+主要讲解了四个类ScanResult,wifiConfiguration,WifiInfo,WifiManager的使用方法。
+ 
+10、Android之用PopupWindow实现弹出菜单
+使用了popupWindow窗体轻松实现了菜单很难实现的界面。多级菜单中包含了子菜单。
+很有学习价值。
+ 
+11、Android自动开关机实现
+通过BroadcastReceiver 实现自定义消息。
+ 
+12、Android中监听电话状态
+Android在电话状态改变是会发送action为android.intent.action.PHONE_STATE的广播，而拨打电话时会发送action为android.intent.action.NEW_OUTGOING_CALL的广播.
+ 
+13、Android自动发送短信
+sendTextMessage方法中第一个参数表示短信的目的电话号码，第二个参数表示短信服务中心号码，如果为null则使用默认的短信服务中心号码。第三个参数表示短信内容，第四个参数表示发送短信结果内容，第五个参数表示发送短信到目的地址后的回复信息。
+ 
+14、BrewClock倒计时
+使用CountDownTimer这个记录下载时间类实现计数。将后台线程的创建和Handler队列封装成为了一个方便的类调用。
+ 
+15、FiveChess五子棋
+通过一个自定义类继承SurfaceView 实现界面，扩展了 Const,SurfaceHolder.Callback, Runnable等接口。
+ 
+16、DialogShow
+一个极其简单的Dialog例子
+ 
+17、dialog去除边框代码
+看标题就应该知道，是一个对话框的外观效果的例子。
+ 
+18、BOOK看遍所有UI控件
+一个例子实现了Android 里面所有的UI控件
+ 
+19、奇艺高清UI界面源代码
+一款很好看的界面，有首页，分类，搜索，我的资料，更多。分别实现了贴图轮换，界面阙套，以及多标签，轮换动画等特效。从这代码中可以学习到界面布局，理解BaseAdapter适配器的作用。主要是UI设计，具体的看代码哟。
+ 
+20、hotel宾馆系统
+一款有java实现的宾馆系统，学习Java的可以看下，学习Android的童靴飘过。
+ 
+21、OssSystem（OA系统图书管理简单版）
+简单的实现了图书管理的系统，主要还是UI设计，其中封装了一个类与服务器交流。
+ 
+22、QQ_UI之分类菜单DEMO
+ListView内嵌GridView的实现。
+ 
+23、从android中调用web service的源码
+详细见代码（简单）
+ 
+24、从网络上获取图片
+主要通过InputStream，FileOutputStream，HttpURLConnection实现。
+ 
+25、动画效果 translate、scale、alpha、rotate 切换Activity动画控件位置调整
+用四个4个TextView 实现了不同的动画效果
+ 
+26、抖动窗口
+通过Animation类 实现 编辑框的抖动
+ 
+27、QQ的登录界面 源代码
+主要是UI设计，在布局文件中实现。
+
+28、tablelogin（登陆界面）
+主要是UI设计，含登陆，注册等界面。
+ 
+29、多点缩放字体
+通过setTouchListener监听实现多点消息，然后效果实现。
+ 
+30、ImageView 图片循环跑马灯的效果
+通过Animation 实现ImageView 的动画效果。
+ 
+31、ViewPager-实现左右两个屏幕的切换
+实现了ViewPager-实现左右两个屏幕的切换 动画效果（没有引用Animation）。
+ 
+32、LoginXml
+简单的 登陆界面设计。
+ 
+33、miniTwitter登录界面
+简单的 登陆界面设计。
+ 
+34、VIEW双缓冲与SurfaceView比较
+如题。
+ 
+35、毕业设计优秀论文
+内容包括移动办公毕业论文，基于Android的移动公交查询系统设计与实现，基于Android平台的3G气象软件，基于Android平台的星座查询软件设计，基于android手机平台的吃豆人游戏设计与开发。
+ 
+36、超爽的android抽屉效果
+写了一个继承LinearLayout的类实现抽屉效果。可以从本例中学习到一些自定义控件。
+ 
+37、Android程序如何升级
+详细见文档。
+ 
+38、OPENG开发的示例代码
+C版 详细见代码。
+ 
+39、MineSweeper
+Java实现的扫雷游戏（经典）。详细见代码。
+ 
+40、TankWar坦克大战
+有Java实现的坦克大战。详细见代码。
+ 
+41、多级PopupWindow的小demo
+很好的学习了PopupWindow。
+ 
+42、个人消费记录软件
+很好的学习了操作数据库实现消费记录。
+ 
+43、仿优酷Android客户端图片左右滑动（自动滑动）
+JDK中的多线程并发库：ScheduledExecutorService的使用，用它实现的每两秒滑动一次图片，大家也可以用其它方式实现。Handler+Message机制更新UI。
+ 
+44、高仿基于android2.2(Froyo)的Contacts
+实现了对联系人进行操作，详细见代码。
+ 
+45、Android防止内存溢出浅析
+对防止内存溢出总结了几条。
+ 
+46、换肤 程序
+详细见代码，非常简单。
+ 
+47、仿iphone 气泡短信 DEMO
+ListAdapter 实现，详细见代码。
+ 
+48、渐入渐出动画 无闪烁 无黑底 Demo
+如题，详细见代码。
+ 
+49、高仿 WIN8系统 磁贴点击下沉倾斜效果源码
+如题，详细见代码。
+ 
+50、结合html5jscss测试程序附源码
+emoJavaScriptInterface类为js调用android服务器端提供接口 android
+作为DemoJavaScriptInterface类的客户端接口被js调用调用的具体方法在DemoJavaScriptInterface中定义： 例如该实例中的clickOnAndroid。详细见代码。
+ 
+51、简单的订机票系统源码
+用调用webservice获取xml，将获得xml再解析出来
+ 
+52、获取Android系统程序信息
+如题，详细见代码。
+ 
+53、加载网页进度条
+标题栏显示网页标题并且滚动，并且用进度条显示网页的加载进度(重新自定义标题栏。详细见代码。
+ 
+54、仿大众点评源码
+只是简单的实现了UI,没有与服务器交流。学好Ui非常好的例子。
+ 
+ 
+55、android获取网络数据到本地并查看
+详细见文档。
+ 
+56、仿QQ微信登录界面
+学习UI非常好的例子，只是UI登陆注册等设计，详细见代码。
+ 
+57、基于socket通讯的文件续传
+基于socket通讯的文件续传，android基于socket通讯的文件续传。详细见代码。
+ 
+58、监控别人的行踪
+分别用GPS,google,baidu等定位行踪。
+ 
+59、仿UCWEB界面源码
+详细见代码。
+ 
+60、仿新版人人的效果
+非常好学习界面例子，详细见代码。
+ 
+61、仿ireader书架
+详细见代码。
+ 
+62、Android模仿乐淘的应用程序分析源码
+详细见代码。
+ 
+63、平台水波效果
+详细见代码。
+ 
+64、Android拍照上传代码样例
+如题，见代码。
+ 
+65、模仿微信导航页效果源码
+前面已经出现过，详细见代码。
+ 
+66、拖动 Button 显示效果
+一个button按钮 可以被拖动到任意位置，主要是通过Ontouch消息实现。
+ 
+67、嵌套TabHost示例
+对学习TabHost非常好的例子
+ 
+68、开发 API人脸检测实例教程
+通过两个主要的API，Android提供了一个直接在位图上进行脸部检测的方法，这两个API分别是   android.media.FaceDetector和android.media.FaceDetector.Face，已经包含在Android官方API中。
+ 
+69、强行结束APP进程的方法
+android.os.Process.killProcess(android.os.Process.myPid());       
+或System.exit(0);
+ 
+70、精仿QQ设置界面
+模仿了精仿QQ设置界面，学习界面的好例子。详细见代码。
+ 
+71、图片阴影效果和影子效果
+自绘实现。详细见代码。
+ 
+72、天天动听 半透明Menu效果
+自定义实现，详细见代码。
+ 
+73、通过手势实现的缩放处理
+前面已讲。
+ 
+74、开发之 SD卡的使用
+详细见文档。
+ 
+75、模仿engadget菜单
+使用TabHost实现的engadget菜单，详细见代码。
+ 
+76、模仿UC等软件启动画面加载时闪烁点的样式
+前面有类似。详细见代码。
+ 
+77、调用Android中的软键盘
+学习了InputMethodManager和EditView类。详细见代码。
+ 
+78、网络通信的六种方式示例代码
+针对TCP/IP的Socket、ServerSocket
+针对UDP的DatagramSocket、DatagramPackage
+针对直接URL的HttpURLConnection
+Google集成了Apache HTTP客户端，可使用HTTP进行网络编程
+使用Web Service。Android可以通过开源包如jackson去支持Xmlrpc和Jsonrpc,另外也可以用Ksoap2去实现Webservice
+直接使用WebView视图组件显示网页
+ 
+79、客户端连接服务器并交互实例
+如题，详细见代码。
+ 
+80、商情商灵商测试系统源代码
+主要使用了Sqlite数据库和listview.gridview控件的配合使用及其它控件
+ 
+ 
+81、口袋微博 服务器 客户端代码
+封装了一个Socket的类与服务的交互信息，自定了协议规则实现了客户端的对相册，日子等数据库的操作，功能有照相以及上传照片，登陆判断以及日子管理/注册等等，是学习的好例子。详细见代码。
+ 
+82、悬浮Activity并可拖动(访悬浮歌词)
+学习WindowManager、.LayoutParams类了。
+ 
+83、一个登陆和注册界面
+详细见代码。
+ 
+84、用户注册，登录的简单实现
+85、一个简单登录的DEMO
+86、一个简单注册界面
+前面已经涉及。
+ 
+87、原来PATH的菜单效果如此简单。布局+TranslateAnimation搞定
+值得一提的是 interpolator的使用，PATH中使用了OvershootInterpolator以及AnticipateInterpolator。interpolator 被用来修饰动画效果，定义动画的变化率，可以使存在的动画效果可以accelerated(加速)，decelerated(减速),repeated(重复),bounced(弹跳)等。
+ 
+88、五种不同的Toast效果
+很好的学习了Toast类。详细见代码。开发可借鉴。
+ 
+89、中文天气预报程序
+Google天气预报的AIP。例如：http://www.google.com/ig/api?&weather=城市名（中文全拼)，我发现在模拟器上面返回的结果和在pc上返回的结果不太一样，pc上有中文的，android模拟器上没有的。详细见代码。
+ 
+90、一个短信应用源码
+详细见代码。
+ 
+91、基于股票的一个Android应用
+详细见代码。
+ 
+92、演化理解 Android 异步加载图片
+Handler+Runnable模式
+Handler+Thread+Message模式
+Handler+ExecutorService(线程池)+MessageQueue模式
+Handler+ExecutorService(线程池)+MessageQueue+缓存模式
+详细见代码。
+ 
+ 
+93、在Android远程上传以及下载图片---XFire框架
+处理类集中在MyWebServiceHelper，它实现了远程获取和上传的细节功能。
+里面有个FileOperate.java类，这个类负责对文件操作。
+详细见代码。
+ 
+94、指南针定位源码
+开发一个检测方向的传感器，程序检测到手机顶部绕z转过的多少度，让指南针图片反转过多少度
+ 
+95、语音识别，根据语音，执行对应操作
+详细见文档，只是一种思路。
+ 
+96、引用第三方库的方法
+详细见代码。
+ 
+97、一个支持暂停下载断点续传的源码
+List<Map<String, Async>> listTask用来存放每一个正在进行的下载任务以及管理任务
+重写了AsyncTask类用于执行下载
+ 
+98、植物大战僵尸（简单版）
+详细见代码哟。
+ 
+99、一款查询软件（身份证号，号码归属等）源代码
+此实例非常好，非常使用，在开发中可以借鉴啊。详细见代码。
+ 
+100、新浪、腾讯、网易、搜狐微博OAuth认证整合Android版
+很好的学习OAuth认证，掌握了帐号安全可靠。详细见代码。我们公司自己定义了一种规则，原理都是参考他们的。
+ 
+101、微博客户端源代码
+102、weibo4andriod
+原理都差不多，详细搜索百度。
+ 
+103、Android游戏源码——忍者快跑
+详细见代码哟。
+ 
+104、使用Vitamio打造自己的Android万能播放器——在线播放
+虽然Android已经内置了VideoView组件和MediaPlayer类来支持开发视频播放器，但支持格式、性能等各方面都十分有限，这里与大家一起利用开源项目Vitamio来打造属于自己的
+Android万能播放器！自己百度搜索吧。
+ 
+105、音乐播放器源码（含歌词显示）
+106、SeeJoPlayer（播放器 简单）
+107、高仿多米音乐播放器
+108、开发源码分享之在线音乐播放器完整项目
+
+
+109、android 悬浮窗 监视内存
+实现悬浮显示，内存使用状况，非常适合学习ActivityManager类以及理解Server使用。
+
+
+110、Android Home 自定义首页界面
+该实例实现了Android默认界面的更换，换上自定义界面，举一反三，可实现拨打或接受电话界面的自定义，感兴趣的筒靴可以好好研究下。
+
+
+111、android电话、短信黑白名单拦截、电话录音
+拦截软件，拦截电话，短信
+如题，动态注册广播，电话来电去电状态拦截以及显示、短信彩信消息以及显示、黑名单数据库实现判断等等。
+
+
+112、手机号码归属地
+地区区号记录。
+
+
+113、android项目实例 商业项目源代码
+一套完整简单的商业的项目源码，包含登陆/注册/设置/浏览/相机/购物等，效果不错，适合初学者。
+
+
+114、PopWindow
+实例弹出对话框。
+
+
+115、TestListView02
+测试列表视图。
+
+
+116、百度手机地图 实例集合
+117、百度地图API 之 定位周边搜索POI
+118、北京公交线路查询（离线）
+119、百度地图 搜索Search
+如题。
+
+
+120、android源码下载工具
+121、Android系统源码获取及编译
+122、Android系统源码下载工具
+
+
+123、Preference_Demo
+测试PreferenceActivity ListPreference的一个实例
+
+
+124、android写的google map api 应用
+如题。
+
+
+125、OA精灵2011_Android版
+如题。
+
+
+126、Android模仿乐淘的应用程序分析源码
+如题，非常好的一个实例。
+
+
+127、仿ireader书架
+如题。
+
+
+128、基于股票的一个Android应用(内含源码) 
+如题。
+
+
+129、游戏场景特效源码
+如题，动画效果。
+
+
+130、飞行射击类游戏源码
+如题。
+
+
+131、疯狂Android讲义源码
+如题。
+
+
+132、android源代码分析
+如题。
+
+
+133、Android无线点餐系统
+含服务器，客户端程序源码
+
+
+134、多种控件多种实现方式Demo
+控件的多种实现方式。
+
+
+135、内置GPS与百度GPS对比 Demo
+总结：
+1.在获取当前位置时，原版的GPS定位要比百度封装的快一些，但差距也并不大。
+2.面对多种不同机型或阉割版系统时，原版的GPS就需要做出更周全的封装(demo中是简单封装)，而百度版的应该是已经全部封装好的了。
+3.系统中有提供谷歌地图服务类，可以把坐标值直接转换成物理地址，但该类只适用于原版GPS方式获取到的坐标，猜测可能是由于中国地图存在地址偏移，原版GPS获取到的是真实坐标，而谷歌地图服务类中已经有偏移计算了。百度版获取到的坐标应该是偏移后的坐标值，不能使用内置的谷歌地图服务类转换，因此采用了百度自己提供的搜索类进行转换；而百度搜索类主要用户商户搜索等，并非是提供坐标转换，直接转换坐标的方式目前百度还没有推出，当位置每次变动的时候就搜索一次坐标位置，这会产生一定的流量，相比会更浪费一些。搜索类不能在使用地址时去搜索，因为他不是立即返回的。
+4.在精准度上(目前是在室内测试的，均为AGPS)，百度更加精准，不知是不是因为百度是国产的。
+
+
+136、Android 电子杂志（带翻页效果）源码
+一个漂亮的android翻页效果电子杂志在翻动书本的时候，页角会根据手自动移动，在手松开页角的时候，会判断是否成功翻页。成功，页角会自动的翻动到目标位置；失败，页角会自动的回落到起始位置。请大家使用android2.1或2.0的系统包，以及将模拟器的大小设置为640*480，让展示效果最好。
+
+
+137、Android 实现自动接听和挂断电话功能
+关键点：
+PhoneUtils.java是手机功能类，从TelephonyManager中实例化ITelephony并返回
+PhoneUtils.getITelephony（telMgr）.silenceRinger（）；//静铃
+PhoneUtils.getITelephony（telMgr）.answerRingingCall（）；//自动接听
+PhoneUtils.getITelephony（telMgr）.endCall（）；//挂断
+PhoneUtils.getITelephony（telMgr）.cancelMissedCallsNotification（）；//取消未接显示
+
+
+138、Android 网络监视器源码
+ 一个不错的网络监视器源码，这个程序有四个主要的模块：
+1.全局的网络监视，2.本机的网络信息，3.网络数据日志记录，4.网络测试（比如：ping 测试）。
+
+
+139、android 遮罩层效果
+看到一本电子杂志上有遮罩层的效果，感觉很漂亮，以为很麻烦，搜索了很多关于android遮罩层的，也没有得出一点思路，原来就是一个透明的效果，然后上面弹出的控件是透明或者半透明之类的，可以选择颜色，还是#ARBG，其中A就是传说中的透明色的值（可以根据需要设置透明的效果）。
+
+
+140、Android代码调用C++代码和C++代码调用Android代码
+如题。
+
+
+141、android基于自定义适配器的ExpandableListView
+如题。
+
+
+142、android源码一个柱状图的Demo
+如题。
+
+
+143、Android之GPS定位详解
+详细的讲解了LocationManager和LocationListener、Location、GpsStatus.Listener、GpsSatellite
+的使用方法。
+
+
+144、Gmail备份手机短信【源码】
+ 本程序使用GMail备份手机短信，在GMail中创建一个文件，用来备份短信
+
+
+145、传说中的3D播放器 源码
+传说的中的3D播放器，说实话我是没看出怎么个3D法来！不过貌似功能挺多的啊，感兴趣的自己看看吧！
+
+
+146、获取Gps信息的程序源码
+ 一个可以获取手机GPS信息的Android程序源码，它还把获取到的信息写到了sqlite数据库中。
+
+
+147、教你如何去除Android应用中的广告
+如题。
+
+
+148、进度条对话框Demo
+详细的讲解了ProgressDialog的使用方法。
+
+
+149、Android 版本检测与管理
+通过Url检测更新、下载并安装更新、删除临时路径。
+
+
+150、Android 电量显示Widgets插件实现
+非常好的一个实例。
+
+
+151、Android 精仿QQ登录界面源码
+如题。
+
+
+152、Android 瀑布流 Demo
+UI设计源码。
+
+
+153、android源码捏苍蝇
+一款简单的游戏源码。适合初学者。
+
+
+154、http 演示Demo
+详细的演示了http的使用方法。
+
+
+155、WIFI 扫描 Demo
+如题。
+
+
+156、带手势划动功能的日历源码
+如题。
+
+
+157、疯狂Android讲义源码
+一套完整的教学源码。
+
+
+158、AccelerometerPlay
+总结：
+视图动画提供了只让View对象具有动画效果的能力，因此想要非View对象具有动画效果，就得自己实现动画效果的代码。事实上，视图动画系统也受到了限制，它只会把很少的View对象的特征暴露给动画效果，如例如，View对象的缩放和旋转，但是没有背景色，等等。
+视图动画的另一个缺点是，它仅能够在绘制View对象时被修改，并且不是实际的View对象本身。例如，如果要让一个按钮，以动画的形式穿越屏幕，按钮正确的绘制了，但是点击按钮的实际位置却不会改变，因此必须自己来实现这种处理逻辑。
+在属性动画系统中，这些现在被彻底删除，并且能够让任何对象的任何属性具有动画效果（View对象和非View对象），并且能够实际修改对象自身。属性动画在动画执行方面也更加健壮。在高层次上，可以给想要动画效果的属性分配动画执行器，如颜色、位置、尺寸以及能够定义的动画特性（如插值和多个动画的同步等）。
+但是，视图动画系统需要较少的创建时间和编写较少的代码。如果视图动画能够满足需求，或者既存的代码已经做了想要完成的动画效果，就不需要使用属性动画效果了。针对不同的情况来选择使用这两种不同的动画系统。
+
+
+159、ActionBarCompat
+用户界面设计指南的应用，自定义标题栏选项卡类。
+
+
+
+
+160、AndroidBeamDemo
+此应用程序是专为运行Android4.0的设备，测试NFC功能！
+
+
+161、BluetoothChat
+基于android平台的蓝牙发送功能源码，学习android下蓝牙编程。
+
+
+162、BasicGLSurfaceView
+演示了gles2.0的使用，UI设计学习。
+
+
+163、BackupRestore
+数据存储到云端服务器，以*.xml文件将手机接入点设置备份至/SDCard/APNBackupRestore目录，还原备份文件，一键删除手机上现有的接入点设置，邮件发送接入点备份文件。
+
+
+164、AppNavigation
+165、ApiDemos
+演示了所有控件以及系统api的使用方法。
+
+
+166、BluetoothHDP 
+蓝牙与外设的通信
+
+
+167、ContactManager
+联系人管理的 实例
+
+
+168、GestureBuilder
+手势识别
+
+
+169、CrossCompatibility
+170、CubeLiveWallpaper
+171、HoneycombGallery
+172、JetBoy
+173、LunarLander
+174、MultiResolution
+175、NFCDemo
+176、NotePad
+177、RandomMusicPlayer
+178、RenderScript
+179、SampleSyncAdapter
+180、SearchableDictionary
+181、SipDemo
+182、SkeletonApp
+183、Snake
+184、SoftKeyboard
+185、SpellChecker
+186、Spinner
+187、SpinnerTest
+188、TicTacToeLib
+189、TicTacToeMain
+190、ToyVpn
+191、TtsEngine
+192、USB
+193、VoicemailProviderDemo
+194、VoiceRecognitionService
+195、WeatherListWidget
+196、WidgetPreview
+197、WiFiDirectDemo
+Android自带实例 源码
+
+
+详细查看源码，文档就自己百度吧。不过像这些在线音乐的，他推荐一款开源的吧，很经典。
+看下面开源的哟。
+ 
+以下是开源项目（都在下载包中）：
+ 
+1、andbatdog电池监控  难度系数最小
+Android BatteryDog 是 Android 平台上用来监控电池电量的服务软件，它生成电池记录文件：/sdcard/BatteryDog/battery.csv，该文件包含时间、电量信息、温度和电压以及一些简单的图形。
+项目就四个源码文件：
+BatteryDog_Service
+继承了服务Service（后台运行和跨进程访问）
+创建了一个线程负责输出信息到文件
+注册了广播接收器ACTION_BATTERY_CHANGED
+BatteryDog
+继承了Activity 布局battery_dog 文件
+主要负责启动/关闭服务Service 和分析数据然后相关控件显示出来
+BatteryGraph
+继承了Activity  动态布局
+显示相关画面
+Log  负责输出显示信息
+ 
+2、Droid Wall 手机防火墙
+Droid Wall - Android Firewall 是一个类似于 Linux 下的iptables 的 Android 手机防火墙软件，允许你限制某些应用访问数据网络，包括 2G/3G 以及 Wi-Fi。
+项目共六个文件：
+Api 包含共享的编程接口。处理所有ip（可用）的“沟通”这个类别。 这是很重要的类。
+BootBroadcast   广播接收机，设置在系统启动时的iptables规则。这是必要的，因为这些规则是不持久的。
+HelpDialog对话框中显示的“帮助”菜单选项被选中时。
+MainActivity 主界面  功能实现部分
+PassDialog对话框中显示要求输入密码。
+StatusWidget 构件实现的ON / OFF 部件状态
+ 
+ 
+3、jchat4android手机聊天程序 （内含开发文档）
+Android jChat 是一个 Android 手机上基于位置的聊天软件，采用P2P通讯机制。
+为了编译jChat，你要使用Eclipse创建一个新的Android项目，然后添加外部JAR和移动的jChat目录选择到libs目录JadeLeapAndroid.jar库。jChat使用了的MapView访问谷歌地图数据。
+本项目有25个目标文件。项目里面有代码注释以及开发文档。
+4、zz-doctor中医大夫助理信息系统
+辅助中医大夫储备药方、药名药理备查。让大夫能腾出精力集中诊断分析, 而不必消耗精力去记忆琐碎的细节。平时有空方便时自己录入储备或完善经验方。 更有利于传承。
+系统架构设计:1. PDA: GUI(Android) +Embedded DB (SQLite) ;2. (可配置)定期提示大夫备份数据到附加储存卡。
+本项目有17个目标文件。
+DbHelper 负责数据库的管理 功能有 执行sql语句 以及 升级等
+ZZ  程序全局类 继承Application
+MedicineDetail 医药详情介绍
+MedicineQuery 医药的查询
+RxRecipeDetail 接收方详情
+RxRecipeDetailEdit  接收方编辑详情
+WelcomeRxRecipeQuery 欢迎接收方查询
+IdentifiedString 标识结构类
+IdentifiedAutoCompleteTextView 自动匹配标识的信息
+IdentifiedStringAdapter 标识信息适配器
+UnitAdapter  单位组适配器
+ZzUtil  单位类
+MedicineSQLBuilder 医药数据库管理类
+RecipeMedicineMapSQLBuilder 接收方医药信息对应的数据库类
+SQLBuilder  数据库编辑器 根据参数选择不同的编辑方式 含main方法
+SubjectSQLBuilder 项目数据库的编辑器
+ 
+由上分析可以得出，该软件实现了数据库的操作，界面布局不复杂。
+ 
+ 
+ 
+5、一款查询软件（身份证号，号码归属等）源代码 (个人觉得这是一款开源软件)
+此实例非常好，非常使用，在开发中可以借鉴啊。
+本项目有24个目标文件。
+BaseActivity  头部bar的布局
+BaseLayout    头部bar的布局
+DataListHolder  就两个成员ImageView TextView 你说干嘛呢
+ItemAdapter  继承适配器
+QueryAddress 继承BaseActivity 实现地址查询
+QueryIDCard  继承BaseActivity  实现身份证查询
+QueryPhone  继承BaseActivity  实现手机号查询
+SmallToolsActivity继承BaseActivity 实现主界面布局
+Splash 继承Activity 实现闪烁延时效果
+UpdateApp 一个确定版本信息升级的类
+ApiImpl Api接口 实现了地址查询 身份证查询 手机信息查询 更新信息查询 网络请求的功能
+AddressInfo 定义了一个地址信息结构类
+AppUpdateInfo定义了一个更新信息结构类
+IDCardInfo 定义了一个身份证结构类
+NumberItem定义了一个帐号结构类
+PhoneInfo 定义了一个手机信息结构类
+AppInfoHelpr 定义了一个程序信息 得到版本信息，版本名
+Constants 定义了一个公用静态变量存放类
+DeviceHelper 定义了一个设备信息类 主要功能有获取尺寸 读取手机号
+HttpClientHelper 定义了一个服务请求类，实现与服务器的交流。
+HttpException 继承 Exception 实现了输出异常信息
+HttpPostParameter 实现了参数信息的设置
+HttpResponse 消息的响应
+InternetHelper 内部帮助 可以湖的网络是否可用
+ 
+由上分析可以得出，该软件只是实现了与服务器请求信息，以及信息显示。界面布局简单。
+ 
+ 
+ 
+6、Zirco-browser：超越海豚的开源浏览器
+Zirco是Android开源的替代浏览器。
+说明：如果已卸载系统自带浏览器，使用Zirco Browser的书签功能可会会出现崩溃的情况。
+基本的浏览器功能（书签，历史，下载...)、无限的选项卡、交通方便的书签、开幕式和闭幕式的简易制表符、从传统的Andr??oid浏览器的书签导入、可设置为默认浏览器、AD -受体阻滞剂（重要提示：了解更多）。换句话说，zirco是一个Android的开源替代浏览器,功能很强大,除常见的功能外,还支持自定义搜索引擎、自定义usergent、支持导入火狐的书签、页面内查找、主页自定义、地址栏搜索、插件支持、无限制的选项卡浏览，左右循环滑动切换；同时支持屏蔽广告；功能可以说很多都是首创,我最喜欢的还是自定义搜索,终于也可以在手机上使用google自定义搜索了,应用自带中文,不过设置中含有部分英文。
+Zirco-browser：超越海豚的开源浏览器分析
+Base32
+Base64
+Base64Encoder
+HexEncoder
+编解码操作类库
+BulkKeyCouplet  关键映射
+Dbg Debug编译操作信息
+QueryParams 检索参数信息 日期
+QueryResult   这是模块类
+UserWeave   用户类 定义了用户信息以及用户操作
+WeaveAccountInfo  帐户自定义信息类
+WeaveBasicObject  基础类 JSONObject 操作
+WeaveConstants   定义常量
+WeaveCryptoUtil  加密解密操作类
+WeaveException  异常类
+WeaveFactory  生产工厂
+WeaveHeader   自定义头信息类
+WeaveResponse 自定义响应消息类
+WeaveSSLSocketFactory 此套接字工厂将创建SSL套接字使用配置证书验证（例如，允许自签名）。
+WeaveTransport  传输协议类
+WeaveUtil
+QuickAction 自定义资源以及标题类
+QuickActionGrid 表格视图操作
+QuickActionWidget  显示用户界面的部件
+Controller 控制器的实现
+EventConstants  自定义事件的常数类
+EventController  事件控制器的实现
+IdownloadEventsListener  下载事件的监听接口
+DbAdapter 数据库适配器的实现
+UrlSuggestionItemComparator 网址比较
+BookmarksCursorAdapter  书签光标适配器。
+DownloadListAdapter  下载UI列表适配器。
+HistoryExpandableListAdapter  历史显示自定义适配器
+UrlSuggestionCursorAdapter  提出建议的适配器。
+WeaveBookmarksCursorAdapter  书签光标适配器
+BookmarkItem书签自定义类
+DownloadItem  下载项目自定义类
+HistoryItem 历史节点
+UrlSuggestionItem 网址自定义类
+WeaveBookmarkItem 书签标识类
+BookmarksProviderWrapper  历史/书签管理。
+WeaveColumns  自定义常量信息类
+WeaveContentProvider
+WeaveContentProvider
+ZircoBookmarksContentProvider
+IsyncListener   同步监听接口
+WeaveSyncTask  同步任务
+AboutActivity  关于界面
+AdBlockerWhiteListActivity  广告拦截器的白名单显示视图
+BookmarksHistoryActivity  联合书签和历史视图
+BookmarksListActivity  书签列表视图
+ChangelogActivity更改日志对话框
+DownloadsListActivity  下载列表视图
+EditBookmarkActivity   添加、编辑书签视图
+HistoryListActivity  历史列表视图
+ItoolbarsContainer   接口定义工具栏容器。
+MainActivity  应用程序的主界面
+MobileViewListActivity 广告拦截白名单列表视图
+WeaveBookmarksListActivity 书签列表视图
+BaseSpinnerCustomPreferenceActivity 自定义的下拉框
+HomepagePreferenceActivity  主页喜好选配视图
+PreferencesActivity 收藏视图
+SearchUrlPreferenceActivity搜索URL收藏视图
+UserAgentPreferenceActivity用户代理收藏视图
+WeavePreferencesActivity 收藏视图
+WeaveServerPreferenceActivity 服务器收藏视图
+CustomWebView  扩展的WebView类
+CustomWebViewClient 扩展的WebViewClient类
+DownloadRunnable  下载线程
+FaviconUpdaterRunnable 更新线程
+HideToolbarsRunnable  隐藏工具栏线程
+HistoryUpdater 历史更新线程
+XmlHistoryBookmarksExporter  一个xml解析出历史书签的线程
+XmlHistoryBookmarksImporter  一个从xml导入历史书签的线程
+AnimationManager  动画效果管理类定义了多重动画效果
+ApplicationUtils  应用函数
+Constants 定义常量
+DateUtils 日期时间管理类
+IOUtils 实用程序的I/O操作类
+ProxyChangeReceiver自定义的代理改变广播操作
+ProxySettings  设置信息
+UrlUtils 网站管理类
+本项目有81个目标文件。代码简单易懂，适合初学者奔向中手，感兴趣的童靴可以好好研究哟。
+  
+7、开源项目pedometer
+Pedometer应用用于记录你每天走路步数的。尽管记录不一定精准，但是从这个项目中，可以学习几个不同的技术：加速器交互、语音更新、后台运行服 务等。
+本项目有16个目标文件。
+CaloriesNotifier 继承接口StepListener, SpeakingTimer.Listener
+能量通知，实现步伐监听，说话监听
+DistanceNotifier  继承接口StepListener,SpeakingTimer.Listener
+距离通知，计算并显示走过的路程。
+PaceNotifier  继承接口StepListener,SpeakingTimer.Listener
+步伐通知，计算和显示速度（步/分钟），处理输入所需的步伐，并通知用户，如果他/她走快或慢。
+Pedometer 主界面
+PedometerSettings 设置属性自定义类
+Settings  设置界面
+SpeakingTimer  说话时间
+反复监听所有对象呼吸。定义由用户设置的时间间隔。
+SpeedNotifier  速度通知
+计算和显示速度（步/分钟），处理输入所需的步伐，并通知用户，如果他/她走快或慢。用途计算速度的步伐和步长的产品。
+StepBuzzer   步骤蜂鸣器
+一步检测时震动。通常情况下，这是不重视，用于调试目的。
+StepDetector步骤探测器
+检测步骤，并通知所有听众
+StepDisplayer  步骤显示
+计数步骤提供的步骤检测，并通过当前的步数的活动。
+StepListener 步骤监听
+StepService  步骤服务
+BodyWeightPreference
+StepLengthPreference
+都是对EditMeasurementPreference 继承 只允许浮点数
+EditMeasurementPreference 继承EditTextPreference
+它可以处理公制/英制设置。
+ 
+这款软件的关键点是类StepService，喜欢的话可以看源码好好研究。
+ 
+ 
+8、AndroidPdfViewerPDF查看器
+Android PDF Viewer 是Android平台下的PDF阅读器。
+本项目有100个目标文件。感兴趣的童靴可以好好研究哟。
+ 
+ 
+9、andricoFacebook客户端
+　　Facebook的创办人是Mark Zuckerberg，他是哈佛大学的学生，之前毕业于Ardsley高中。最初，网站的注册仅限于哈佛学院的学生。在随后的两个月内，注册扩展至波士顿地区的其他高校（如麻省理工学院）以及斯坦福大学、纽约大学、西北大学和所有的长春藤名校。第二年，很多其他学校也被邀请加入进来。最终，在全球范围内有一个大学后缀电子邮箱的人（如.edu, .ac.uk等）都可以注册。之后，在Facebook中也可以建立起高中和公司的社会化网络。而从2006年9月11日起，任何用户输入有效电子邮件地址和自己的年龄段，即可加入。用户可以选择加入一个或以上网络，例如中学的、公司的、或地区的。
+ Facebook客户端软件分析
+ByteArrayBody  操作字节流根据字节流获得进程条的状态
+HttpChainingRunnable 服务连接线程
+HttpClientService 客户端服务线程
+HttpMessageFactory 请求由HTTP客户端服务生成HTTP可以执行的对象。
+HttpResponseByHandlerDecorator 设置消息处理
+HttpResponseRunnable  封装HTTP请求处理线程
+IhttpResponseRunnable抽象http响应接口
+ContactInfo 自定义联系人信息类
+ContactList 自定义联系人列表类
+JsonParser 自定义Json解析类
+MainActivity  主程序界面
+Preferences 定义存储数据类
+SettingsActivity 设置界面
+Synchronize 同步数据处理界面
+UiHandler UI界面处理消息类
+UserInfo 封装用户信息数据的容器
+WebActivity 网页界面
+WebViewActivity  网页视图界面
+Contact 封装了自定义联系人数据
+DBContact 数据库管理联系人数据
+DBHelper 数据库的辅助类
+AuthorizationActivity  口令认证界面
+ExtendedPreferenceActivity 口令认证扩展界面
+FB
+FBBase
+FBMethod 产生Md5值
+FBMethodCallback 回调函数
+FBMethodFactory 方法工厂
+LoginActivity  登陆界面操作
+本项目有30个目标文件。感兴趣的童靴可以好好研究哟。
+ 
+ 
+10、TorProxy应用实现了Android手机无线电电传通讯(TOR)
+TorProxy应用实现了Android手机无线电电传通讯(TOR)，和Shadow应用一起使用，可以使用手机匿名上网。从该项目源代码中，可以掌握socket连接、管理cookie等方法。
+Shadow项目 20个目标文件，TorProxy项目83个目标文件。感兴趣的童靴可以好好研究哟。
+ 
+ 
+11、jamendo-开源在线音乐
+本项目共113个目标文件。
+粗略介绍每个包作用：
+com.teleca.jamendo.widget.*：用户自定义组建，主要包括进度条、错误条、专辑倒影图片控件、以及相关接口。
+com.teleca.jamendo.util.:用户自定义视图切换器、图片缓存、自定义触摸监听器（播放进度）、以及分享，计算音乐时间，设置语言等工具帮助类。
+com.teleca.jamendo.util.download.:提供下载远程音乐任务，以及相关接口回调，同时定义操作数据库相关接口，以及观察类。
+com.teleca.jamendo.service.*：音乐的播放服务，以及下载服务。
+com.teleca.jamendo.media.*:音乐播放器引擎以及相关接口（自定义类继承播放器MediaPlayer）。
+com.teleca.jamendo.gestures.*:读取raw文件存取手势类，以及相关接口，同时自定义手势识别界面，用于手势操作播放音乐。
+com.teleca.jamendo.dialog.*:自定义对话框基类，以及相关对话框。
+com.teleca.jamendo.db.*:sqlite数据库操作相关类以及方法，包括相关基类，泛型。
+com.teleca.jamendo.api.*:提供对象实体，歌曲、歌曲条目列表，歌曲专辑，歌手，以及相关IO异常处理等
+com.teleca.jamendo.api.impl.*：通过服务端解析JSON格式数据并转化为相应实体对象，列表等。
+com.teleca.jamendo.api.util：提供访问网络之工具类，url请求缓存，封装http请求等等。
+com.teleca.jamendo.adapter.*:提供适配ListView列表适配器基类，以及相关子类.
+com.teleca.jamendo.activity.*:提供操作界面activity,欢迎页，关于，播放浏览，播放，以及搜索，显示歌曲等界面。
+当然我们可以粗略知道UI布局文件夹，包括UI布局，菜单布局，动画，xml（设置界面）,值文件（不同语言版本），raw(手势文件)
+首先我们对其包结构以及相关包用途有个大致的了解，接下来，再慢慢来看看这些界面，做到心中有数。
+ 
+Jamendo代码里面实现音乐搜索主要是使用了Apache Http 4.0 和JSON，Jamendo官网提供API供应用程序查询数据，且提供了四种方式查询，依次是：Artist，Tag，UserPlaylist和UserStarredAlbums。Jamendo提供
+http://api.jamendo.com/get2/id+name+url+image+artist_name/album/jsonpretty/?n=5&order=ratingweek_desc供应用程序查询和调用，采用JSON的方式与服务器进行数据交互。获得调用的API URL链接，调用Caller.doGet()  实现方式是通过HttpClient，然后就是将获得的Stream转换成JSONArray构造所需要的String，最后就是调用  getAlbums(JSONArrayjsonArrayAlbums) 。
+在Jamendo程序中，有一个很明显的特征是存在一个全局的JamendoApplication类，此类继承自Application，此类的作用主要是实现应用程序集的全局变量，也就是在任何一个Activity中都可以访问的变量。它不会因为Activity的生命周期结束而消失。通过继承自Application，我们能够实现这个目标。
+主界面主要由两部分构成，一个Header和一个ListView，Header部分由一个ViewFlipper构成，主要分三种，一个loading画面，一个Gallery显示，一个获取failed画面，由于重点是下面的listView部分，所以本部分在此就不详细说明了。
+我们知道一般ListView显示都离不开Adapter，在此也不例外，或继承自BaseAdapter，然后重写getView方法，或直接调用Android已经写好的方法，之所以拿这个来讲，是因为这里稍微有点特殊，它并不是就直接实现getView方法然后，通过调用setAdapter显示，而是在其中添加了一步，将原本能通过一个Adapter显示的分成两部分，加入Browse Jamendo 和Libray这两个TextView，让用户更容易理解，通过分析这个listView的实现，可以加深对Adapter实现方式的理解。
+在Jamendo中，主要是通过再定义一个SeparatedListAdapter来进行这个工作，我们来看看它是怎么实现的：我理解的Adapter过程，首先通过调用getCount（）来获得总Row数目，然后对一行调用getView进行绘制，因此要实现在listView里面另外加入两部分，那么对每一部分调用自己的绘图方式，然后在绘制过程中，判断if(position == 0) return headers.getView(sectionnum, convertView, parent);然后单独调用其绘制函数进行绘制。
+jamendo 在线音乐分析
+JamendoApplication播放与下载服务
+AlbumActivity  相册视图
+ArtistActivity  艺术家视图
+BrowsePlaylistActivity  播放列表视图
+DownloadActivity  下载界面视图
+HomeActivity  首页视图
+IntentDistributorActivity  介绍视图
+PlayerActivity播放视图
+PlaylistActivity  播放列表视图  自动保存播放列表
+RadioActivity  收音机视图  无线电导航
+SearchActivity  搜索视图
+SettingsActivity  设置视图
+SplashscreenActivity闪屏视图
+StarredAlbumsActivity五星级相册视图  浏览专辑列表 打开它所在的专辑
+AlbumAdapter  相册适配器
+AlbumGridAdapter  相册格子式适配器
+ArrayListAdapter  数组式列表适配器
+DownloadJobAdapter  下载任务适配器
+ImageAdapter  图片适配器
+PlaylistAdapter播放列表适配器
+PlaylistRemoteAdapter远程播放列表适配器
+PurpleAdapter紫色适配器
+PurpleEntry
+PurpleListener
+RadioAdapter收音机适配器
+ReviewAdapter评论适配器
+SeparatedListAdapter分隔列表适配器
+Album 相册存储数据
+Artist  艺术家存储数据
+JamendoGet2Api  API操作
+License  自定义许可证（用户）类
+Playlist 播放列表存储类
+PlaylistEntry播放列表条目存储类
+PlaylistRemote远程播放列表存储类
+Radio  自定义电台类
+Review  自定义评论类
+Track 轨迹类
+WSError  错误类
+AlbumBuilder 
+AlbumFunctions
+ArtistBuilder
+ArtistFunctions
+JamendoGet2ApiImpl用于web请求的ApacheHTTP客户端API的实现
+JSONBuilder  抽象类
+LicenseBuilder   认证生成
+PlaylistBuilder   远程播放列表生成
+PlaylistFunctions  返回远程播放列表
+RadioBuilder    收音机生成
+RadioFunctions   返回生成收音机组
+ReviewBuilder    生成评论对象
+ReviewFunctions   获得评论
+RSSFunctions    获得id
+TrackBuilder    生成跟踪对象
+TrackComparator  跟踪比较
+Caller   拨打功能
+RequestCache  请求缓存
+XMLUtil  xml操作
+AlbumDatabaseBuilder  专辑数据库生成
+Database  数据库接口
+DatabaseBuilder数据库建设者模板 - 有利于从SQLite数据库对象增加
+DatabaseImpl采用Android的SQLite数据库实施
+RadioDatabaseBuilder  收音机数据库生成
+TrackDatabaseBuilder  跟踪数据库生成
+AboutDialog关于对话框
+AddToPlaylistDialog添加到播放列表对话框
+AlbumLoadingDialog专辑加载对话框
+ArtistLoadingDialog  艺术家加载对话框
+LoadingDialog  加载对话框基类
+LyricsDialog  歌词对话框
+PlayerAlbumLoadingDialog  专辑播放加载对话框
+PlaylistRemoteLoadingDialog远程播放列表加载对话框
+StarredAlbumLoading  五星专辑载入对话框
+TutorialDialog  教程信息显示框
+GestureCommand接口
+GestureCommandRegister  简单的手势命令寄存器
+GesturesHandler  处理程序的手势
+PlayerGestureCommandRegiser
+PlayerGestureNextCommand
+PlayerGesturePlayCommand
+PlayerGesturePrevCommand
+PlayerGestureStopCommand
+自定义手势类
+PlayerEngine  播放引擎接口
+PlayerEngineImpl  同上
+PlayerEngineListener播放引擎侦听接口
+DownloadService  后台下载服务
+PlayerService后台播放服务
+DrawableAccessor绘制存取
+FixedViewFlipper  固定视图翻转
+Helper  各种随机函数
+ImageCache  缓存下载的图像，节省带宽和用户的数据包
+OnSeekToListenerImp   点触事件
+SeekToMode  枚举
+DownloadDatabase下载接口该数据库存储在一个外部的SD卡，更具体地说，每个SD卡已用于下载/jamendroid/ downloads.db参考下
+DownloadDatabaseImpl  数据库描述轨道数量
+DownloadHelper  各种辅助功能
+DownloadJob单一的远程文件下载任务
+DownloadJobBuilder下载任务生成
+DownloadJobListener下载任务的监听接口
+DownloadManager所有下载的相关行动接口
+DownloadManagerImpl下载管理接口
+DownloadObserver下载观察接口
+DownloadProvider下载数据存储接口
+DownloadProviderDbImpl使用SqlLite数据库存储
+DownloadTask文件下载线程
+MediaScannerNotifier  mp3文件下载文件扫描，并把它添加到Android的乐手的图书馆
+AlbumBar 专辑栏
+ArtistBar艺术栏
+FailureBar通知用户失败栏
+OnAlbumClickListener点击专辑栏的接口
+ProgressBar进程条栏
+ReflectableLayout反映UI元素的容器
+ReflectiveSurface
+RemoteImageView图片浏览扩展类，允许远程图像轻松下载
+ 
+该项目共113个目标文件！文档多，易于学习。请感兴趣的同学好好研究啊。
+ 
+ 
+12、飞行历 飞行模式 AirPlus
+一款Android飞行模式自动切换工具，可以根据设定的时间自动进入和退出飞行模式，在无需关机的情况下让手机更加省电，减少睡眠时间手机的辐射作用。
+支持功能
+1.快速进入和快速退出飞行模式
+2.自定义添加，删除，启用，禁用飞行时间段
+3.设置自动切换飞行模式的时间和重复日期
+4.设置控制不受飞行模式控制的无线硬件
+5.设置是否在切换飞行时进行震动提示
+6.进入切换飞行模式10秒钟提示（延迟飞行，立即飞行，取消飞行）
+7.可以进行延迟飞行操作
+8.检测通话状态，防止正在通话时切换飞行模式
+9.设置延迟飞行的提醒间隔
+10.设置音量键在飞行切换中的作用
+分析如下：
+Air  主要实现了飞机相关数据的封装容器
+AirAlertFullScreen 继承Activity 实现飞行的全屏模式显示
+AirAlert 继承AirAlertFullScreen  显示信息
+AirClockTextView  时钟显示的文本显示控件
+AirDigitalClock 设置数字时钟 以及更新数字时钟
+AirModeController 飞行模式的控制，通过广播实现。
+AirModeRadioPreference 飞行模式的单选选择设置。
+AirPlusActivity  程序的主界面涵盖了添加 删除 菜单 等等功能
+Airs 针对飞行数据的管理操作数据库
+AirService 后台运行实现了监听电话以及关闭后的清除
+DontPressWithParentLayout
+RepeatPreference
+SetAir 设置类操作相关数据
+SettingsActivity 设置界面
+AirDatabaseHelper  飞行数据库的操作类
+AirProvider 继承 ContentProvider 实现存储数据
+AirAppWidgetReceiver 应用程序的广播接受 主要负责程序的更新
+AirEndReceiver         结束等操作      
+AirInitReceiver     启动后的初始化
+AirReceiver 飞行接受提示 飞行时区的变化以及相关事件的监听
+
+
+ 本项目共25个目标文件。文档多，易于学习。请感兴趣的同学好好研究啊。
+
+
+13、Jchat
+Android jChat 是一个 Android 手机上基于位置的聊天软件，采用P2P通讯机制。
+JChat 的编译：
+1、  配置环境，需要的软件有Android 模拟器，JADE Leap（JADE是多agent开发框架），J2SE （至少1.5）。
+2、  进入开发设置，运行模拟器，安装JChat文件（可通过命令adb install<PATH_TO_APK>\jChat.apk），运行JADE平台（可通过命令java -cp <PATH_TO_JADE_LEAP_JAR>\JadeLeap.jar-Djade_domain_df_autocleanup=true jade.Boot -gui  ），从模拟器中运行程序JChat，在JADE平台菜单中设置主机以及端口。最后在JChat程序菜单中点击连接按钮进行连接操作（详情可以看官方文档--下载包中有）。
+3、  源码分析之前，需要认真学习一下Jade的Android的编程（有聊天程序源码下载，都在下载包中），编译源码，需要到google 中申请 map api 的key,不过由于神奇的国度制约的原因，申请连接的网站无法访问，需要通过其它的方法，比如代理等等，申请到的key 需要放到 homepage.xml中。
+下面来进行分析吧，分析只是针对源码，其它的不涉及。
+本项目共25个目标文件。
+ContactListActivity程序的启动页，内部含有控制地图以及Jade连接等操作，方法onConnected 是JadeGateWay里面的回调方法。
+ChatActivity 是聊天的主界面，主要通过JadaGateway操作连接,发送,接受等
+ChatSessionNotificationManager聊天会话通知管理自定义类，记录了所有的进程清单。
+Contact 接触者自定义类，含有名称，电话号码，状态值，是否在sd卡里面…。
+ContactListAdapter接触者列表适配器，主要用户显示联系人列表的信息。
+ContactListChanges接触者列表变化的自定义类，接触者列表状态更新。
+ContactLocation  接触者位置类，是否有移动等动作。
+ContactManager  接触者管理类，主要负责接触者的添加、删减以及UI更新等功能。
+ContactsPositionOverlay接触者的位置显示物，Overlay的子类，主要负责在地图上显示自定义图像，内置滚动与否以及图像大小改变与否，在地图上话画在线联系人以及场景等。
+ContactsUpdaterBehaviour主要表现在其设置由MsnAgent执行。它基本上执行主要业务：定期更新的DF的手机中所有接触的位置（由模拟的GPS更新）。
+GeoNavigator 自定义导航类，启动或关闭联络位置的更新。
+GuiEventHandlerUI处理类。
+IEventHandler  事件处理类接口。
+JadeParameterDialog  Jade参数设置对话框。
+JChatApplication  应用程序类，存贮了全局变量信息，以及初始化服务器以及端口号，手机号等
+MsnAgent 消息代理（Jade的Android的编程）
+MsnEventMgr消息事件的自定义类，含有事件名，地图存储事件等参数信息，
+MsnSession 消息会话，含有所有参与者的电话号码，以及消息，
+MsnSessionAdapter消息会话适配器，显示消息会话视图。
+MsnSessionManager消息会话管理的自定义类，主要是启动会话，添加会话，移除会话，返回会话，添加消息到会话等操作。
+MsnSessionMessage消息会话消息的自定义累，含有时间、内容、发送者姓名以及电话号码等。
+MultiSelectionListView多选列表
+SendSMSActivity 发送消息界面，执行发送任务。
+SMSIntentReceiver消息接收广播，主要负责消息的接收。
+程序主要是已消息会话为主，引进了Google地图显示联系人的位置等信息。
+ 
+本项目共25个目标文件，还有测试聊天程序7个目标文件，以及开发文档等，感兴趣的童靴好好研究下吧。
+ 
+14、Android下的加密信息客户端WhisperSystems-TextSecure
+TextSecure是Android下的加密信息客户端，旨在增强用户和企业通信的安全性。
+本项目共289 个目标文件，喜欢的童靴就好好研究下吧。
+  
+15、ipcamera-for-android 手机变成IPCamera
+一款将Android手机变成IP Camera的软件，在同一个网路，你可以在任意的浏览器查看手机监控视频。其中实现了如何透过LocalSocket采集纯H.264视频流。如何封装FLV格式视频文件。如何集成一个内置的Web Server。
+本项目共7个目标文件，但需要编译jni文件下有c++文件。感兴趣的同学好好研究下吧。
+ 
+16、OpenSudoku一个简单的九宫格数独游戏
+OpenSudoku是一个简单的九宫格数独游戏。从代码中可以学习到如何在视图中显示表格数据，以及如何和一个网站交互等技术。它旨在通过手指和键盘控制。它预装90在3个难度级别的谜题，更多的难题，可以从网上下载，它也允许你输入自己的难题。
+本项目共54 个目标文件，还含有其它测试项目。感兴趣的同学好好研究下。
+ 
+17、quitesleep手机电话功能软件
+QuiteSleep 是 Android 手机的一个小软件，它可以控制你在睡眠期间谁可以打电话进来打搅你，也可以定义其他唤醒事件，如果处于静音状态，该软件会给打电话的人发送一条你设定好的短信，告诉他别来打搅你的睡眠。
+ 
+本项目共74 个目标文件。感兴趣的同学好好研究下。
+ 
+18、Android全能视频播放器 VPlayer
+VPlayer 是一款Android 平台上最好的媒体播放器，具有很多实用和方便的功能，干净简洁的界面，加上流畅的播放处理能力，大大增强了Android的视频播放功能。它支持所有流行的视频播放格式。
+VPlayer是一款安卓平台上较为知名的播放器程序，新的版本中带来了硬件加速解码和渲染功能，能够让绝大部分的Android设备都能够播放MKV/AVI/MOV/FLV/TS/M4V/ 3GP视频。
+VPlayer是一个硬件加速Android的媒体播放器。它使用硬件视频解码器，各种容器和音频编解码器组合。
+双核心/高端设备（轰动，银河S/S2，NEXUS- S），可以播放720p甚至1080pMKV /AVI/MOV /FLV/ TS/ M4V /3GP。VPlayer水渠不到MoboPlayer MX视频播放器，如西南的球员bettery。ICS的设备可以发挥完整的硬件加速1080P文件，蜂窝片可以播放720P的MKV与完整的硬件加速。如果您使用MIUI，CM7或非官方的光盘不能播放MKV/ FLV / MOV / AVI使用的默认播放器，VPlayer是最好的解决办法。
+ 
+ 
+19、rokon_src_2-0-3_游戏引擎
+Rokon 是Android平台一个开源(New BSD)的2D OpenGL 游戏引擎，目前版本为 2.0.3 (10/07/09，10/08/17更新到2.1.0) 。其中集成了Box2D，帮助你在游戏中实现物理效果。
+引擎作者已经停止更新了，所以大家请谨慎选用这个引擎，毕竟还有一些BUG没有修改。
+详细资料地址：http://www.eoeandroid.com/thread-26588-1-1.html
+本项目共113 个目标文件，感兴趣的童靴就研究下。
+ 
+ 
+20、Angle v1.0_2D游戏引擎
+Angle是一款专为Android平台设计的，敏捷且适合快速开发的2D游戏引擎，基于OpenGL ES技术开发。该引擎全部用Java代码编写，并且可以根据自己的需要替换里面的实现，缺陷在于文档不足，而且下载的代码中仅仅包含有少量的示例教程。
+ 
+本项目共42 个目标文件，感兴趣的童靴就研究下。
+ 
+21、sipdroid语音及视频通话 （经典）
+Sipdroid是一个运行于Android手机平台上的SIP/VoIP客户端。
+开发环境的配置
+下载下来SipDroid源代码后，不能直接导入到eclipse中，否则是无法使用和编译的。
+首先需要通过command line参照工程目录下的BUILT.txt文件对工程进行update。
+如：android update project-p . -t 2（这里 -p指的是 --path -t指的是 --target）
+由于是开源软件，需要版本控制的服务器，可以安装Subclipse（可以参见官网）
+这样就可以将工程import到eclipse中了。
+整理一些Android视频通话技术开发的资料：
+SipDroid是一款开源的SIP/Voip客户端软件，针对Android手机开发平台。它是通过SIP provider来提供电话通信服务的，在它的最新的版本1.5.5beta中也提供了视频通话的服务。
+它运行在标准的SIP协议之上，由于Android内核本身没有提供SIP协议栈，所以SipDroid软件中通过JNI直接实现了SIP协议栈。它能够在如下一些网络中提供VoiP服务：WLAN、3G、EDGE网络。甚至能够和Skype、Google Talk, MSN, Yahoo, AIM, and ICQ等用户进行通话。但前提必须到一些SIP provider注册账号（有免费的，也有收费的），SipDroid强烈建议使用PBXes这个sip provider来得到服务。
+对于SipDroid实现视频通话的原理，目前的理解是：发送方是将是将视频数据传输到视频流媒体服务器，然后再传输给接收方的。具体细节目前不是很清楚，因为涉及到许多通信协议。
+ 
+本项目共250 个目标文件，还有jni文件下c++文件需要编译。感兴趣的同学必须得好好研究研究。
+ 
+还有收集到的资源------888个经典Logo
+ 
+还有好多……
+ 
+ 
+如何阅读java与c++项目
+frameworks 目录（核心框架——java及C++语言）
+|-- base    （基本内容）
+|   |-- api   （？都是xml文件，定义了java的api？）
+|   |-- awt   （AWT库）
+|   |-- build   （空的）
+|   |-- camera   （摄像头服务程序库）
+|   |-- cmds   （重要命令：am、app_proce等）
+|   |-- core   （核心库）
+|   |-- data   （字体和声音等数据文件）
+|   |-- docs   （文档）
+|   |-- graphics （图形相关）
+|   |-- include   （头文件）
+|   |-- keystore （和数据签名证书相关）
+|   |-- libs   （库）
+|   |-- location （地区库）
+|   |-- media   （媒体相关库）
+|   |-- obex   （蓝牙传输库）
+|   |-- opengl   （2D-3D加速库）
+|   |-- packages （设置、TTS、VPN程序）
+|   |-- sax   （XML解析器）
+|   |-- services （各种服务程序）
+|   |-- telephony （电话通讯管理）
+|   |-- test-runner （测试工具相关）
+|   |-- tests   （各种测试）
+|   |-- tools   （一些叫不上名的工具）
+|   |-- vpn   （VPN）
+|   `-- wifi   （无线网络）
+|-- opt    （可选部分）
+|   |-- com.google.android     （有个framework.jar）
+|   |-- com.google.android.googlelogin  （有个client.jar）
+|   `-- emoji   （standard message elements）
+`-- policies   （Product policies are operating system directions aimed at specific uses）
+    `-- base 
+        |-- mid （MID设备）
+        `-- phone （手机类设备，一般用这个）
+ 
+hardware 目录  （部分厂家开源的硬解适配层HAL代码）
+|-- broadcom    （博通公司）
+|   `-- wlan    （无线网卡）
+|-- libhardware    （硬件库）
+|   |-- include    （头文件）
+|   `-- modules   （Default (and possibly architecture dependents) HAL modules）
+|       |-- gralloc   （gralloc显示相关）
+|       `-- overlay   （Skeleton for the "overlay" HAL module.）
+|-- libhardware_legacy （旧的硬件库）
+|   |-- flashlight   （背光）
+|   |-- gps    （GPS）
+|   |-- include    （头文件）
+|   |-- mount    （旧的挂载器）
+|   |-- power    （电源）
+|   |-- qemu    （模拟器）
+|   |-- qemu_tracing （模拟器跟踪）
+|   |-- tests    （测试）
+|   |-- uevent    （uevent）
+|   |-- vibrator    （震动）
+|   `-- wifi    （无线）
+|-- msm7k    （高通7k处理器开源抽象层）
+|   |-- boot    （启动）
+|   |-- libaudio   （声音库）
+|   |-- libaudio-qsd8k （qsd8k的声音相关库）
+|   |-- libcamera   （摄像头库）
+|   |-- libcopybit   （copybit库）
+|   |-- libgralloc   （gralloc库）
+|   |-- libgralloc-qsd8k （qsd8k的gralloc库）
+|   |-- liblights   （背光库）
+|   `-- librpc    （RPC库）
+|-- ril     （无线电抽象层）
+|   |-- include    （头文件）
+|   |-- libril    （库）
+|   |-- reference-cdma-sms （cdma短信参考）
+|   |-- reference-ril    （ril参考）
+|   `-- rild     （ril后台服务程序）
+`-- ti       （ti公司开源HAL）
+    |-- omap3     （omap3处理器）
+    |   |-- dspbridge   （DSP桥）
+    |   |-- libopencorehw （opencore硬件库）
+    |   |-- liboverlay   （overlay硬件库）
+    |   |-- libstagefrighthw （stagefright硬件库）
+    |   `-- omx    （omx组件）
+    `-- wlan     （无线网卡）
+ 
+prebuilt 目录    （x86和arm架构下预编译的一些资源）
+.
+|-- android-arm   （arm-android相关）
+|   |-- gdbserver   （gdb调试器）
+|   `-- kernel    （模拟的arm内核）
+|-- android-x86   （x86-android相关）
+|   `-- kernel    （空的）
+|-- common    （通用编译好的代码，应该是java的）
+|-- darwin-x86    （drawin x86平台）
+|   `-- toolchain   （工具链）
+|       |-- arm-eabi-4.2.1
+|       |-- arm-eabi-4.3.1
+|       `-- arm-eabi-4.4.0
+|-- darwin-x86_64   （drawin x86 64bit平台）
+|-- linux-x86    （linux x86平台）
+|   `-- toolchain   （工具链，我们应该主要用这个）
+|       |-- arm-eabi-4.2.1
+|       |-- arm-eabi-4.3.1
+|       |-- arm-eabi-4.4.0
+|       `-- i686-unknown-linux-gnu-4.2.1（x86版编译器）
+|-- linux-x86_64   （linux x86 64bit平台）
+|-- windows    （windows平台）
+`-- windows-x86_64 （64bit windows平台）
+ 
+ 
+system 目录  （底层文件系统库、应用及组件——C语言）
+.
+|-- Bluetooth   （蓝牙相关）
+|-- core    （系统核心工具盒接口）
+|   |-- adb   （adb调试工具）
+|   |-- cpio   （cpio工具，创建img）
+|   |-- debuggerd （调试工具）
+|   |-- fastboot （快速启动相关）
+|   |-- include   （系统接口头文件）
+|   |-- init   （init程序源代码）
+|   |-- libacc   （轻量级C编译器）
+|   |-- libctest   （libc测试相关）
+|   |-- libcutils （libc工具）
+|   |-- liblog   （log库）
+|   |-- libmincrypt （加密库）
+|   |-- libnetutils （网络工具库）
+|   |-- libpixelflinger （图形处理库）
+|   |-- libsysutils （系统工具库）
+|   |-- libzipfile （zip库）
+|   |-- logcat   （查看log工具）
+|   |-- logwrapper （log封装工具）
+|   |-- mkbootimg （制作启动boot.img的工具盒脚本）
+|   |-- netcfg   （网络配置netcfg源码）
+|   |-- nexus   （google最新手机的代码）
+|   |-- rootdir   （rootfs，包含一些etc下的脚本和配置）
+|   |-- sh    （shell代码）
+|   |-- toolbox   （toolbox，类似busybox的工具集）
+|   `-- vold   （SD卡管理器）
+|-- extras    （额外工具）
+|   |-- latencytop （a tool for software developers，identifying system latency happen）
+|   |-- libpagemap （pagemap库）
+|   |-- librank   （Java Library Ranking System库）
+|   |-- procmem （pagemap相关）
+|   |-- procrank （Java Library Ranking System相关）
+|   |-- showmap （showmap工具）
+|   |-- showslab （showslab工具）
+|   |-- sound   （声音相关）
+|   |-- su    （su命令源码）
+|   |-- tests   （一些测试工具）
+|   `-- timeinfo （时区相关）
+`-- wlan    （无线相关）
+    `-- ti    （ti网卡相关工具及库）
+ 
+ 
+packages 目录
+.
+|-- apps     （应用程序库）
+|   |-- AlarmClock   （闹钟）
+|   |-- Bluetooth   （蓝牙）
+|   |-- Browser   （浏览器）
+|   |-- Calculator   （计算器）
+|   |-- Calendar   （日历）
+|   |-- Camera    （相机）
+|   |-- CertInstaller   （在Android中安装数字签名，被调用）
+|   |-- Contacts   （拨号(调用)、联系人、通话记录）
+|   |-- DeskClock   （桌面）
+作者：吧主
+地址：http://blog.csdn.net/xiaole0313/article/details/51133150
